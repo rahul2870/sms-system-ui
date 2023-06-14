@@ -60,12 +60,15 @@ export default function ContactInfoPageF() {
             .then(result => {
                 setLoading(false);
                 if (!result?.success) {
+                    setLeftConfirm(false)
                     NotificationManager.error('Something Went Wrong.', 'Got Error!', 5000);
+                } else {
+                    NotificationManager.success('Sent Successfully.', 'Success!');
+                    navigate("/history");
                 }
-                NotificationManager.success('Sent Successfully.', 'Success!');
-                navigate("/history");
             })
             .catch(error => {
+                console.log("error : ", error)
                 setLoading(false);
                 NotificationManager.error('Something Went Wrong.', 'Got Error!', 5000);
             });
@@ -77,7 +80,7 @@ export default function ContactInfoPageF() {
     }
     return <div className='container'>
         {letConfirm && <div className='confirmation-box'>
-            <h1>Alert! Message will only send to <span style={{ textDecoration: "underline" }}>+91-9810153260</span></h1>
+            <h1>Alert! Message will only send to <span style={{ textDecoration: "underline" }}>+91-8448443891</span></h1>
             <div>
                 <button onClick={() => { setLeftConfirm(false); }}>Cancel</button>
                 <button onClick={sendSMSRequest}>Send Anyway</button>
