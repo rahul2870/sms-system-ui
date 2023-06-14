@@ -3,7 +3,7 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 import { useNavigate } from 'react-router-dom';
 import Loader from '../components/loader';
 
-const ServerURL = "https://sms-system-server-pq47jcjoc-rahul2870.vercel.app"
+const ServerURL = "https://sms-system-server.vercel.app"
 
 
 export default function SmsHistoryPage() {

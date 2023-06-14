@@ -3,8 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import Loader from '../components/loader';
-
-const ServerURL = "https://sms-system-server-pq47jcjoc-rahul2870.vercel.app"
+const ServerURL = "https://sms-system-server.vercel.app"
 
 // to generate OTP randomly
 function generateOTP() {
@@ -43,7 +42,7 @@ export default function ContactInfoPageF() {
     }, [id, contactList]);
 
 
-    const sendSMSRequest = () => {
+    const sendSMSRequest = async () => {
         setLoading(true);
         fetch(`${ServerURL}/send-sms`, {
             method: 'POST',
