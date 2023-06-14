@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { store } from './store';  // redux-toolkit store
+import { Provider } from 'react-redux'
+import './global.scss';
+import 'react-notifications/lib/notifications.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+// there is no reducer for it but in future may needed.
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  </Provider>
+); 

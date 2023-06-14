@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, BrowserRouter } from "react-router-dom"
+import Navbar from "./components/navbar"
+
+// pages
+import AllContactList from "./pages/contact-list"
+import ContactInfoPageF from "./pages/contact-info"
+import SmsHistoryPage from "./pages/sms-history"
+import SMSCompose from "./pages/sms-compose"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return <BrowserRouter>
+        <Navbar>
+            <Routes>
+                <Route path="/" element={<AllContactList />} />
+                <Route path="/info/:id" element={<ContactInfoPageF />} />
+                <Route path="/message-compose/:id" element={<SMSCompose />} />
+                <Route path="/history" element={<SmsHistoryPage />} />
+            </Routes>
+        </Navbar>
+    </BrowserRouter>
 }
 
-export default App;
+export default App
